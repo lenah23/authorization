@@ -4,8 +4,11 @@ import logo from '../../assets/images/logo.svg';
 import loginIcon from '../../assets/images/login.svg';
 import synexis from '../../assets/images/SYNEXIS.svg';
 import styles from './Header.module.scss';
+import UseHeaderHooks from './Header.hooks';
+import { CustomModal } from '../index';
 
 const Header = () => {
+  const { openModal, handleClose, handleOpen } = UseHeaderHooks();
   const logedIn = false;
 
   return (
@@ -26,11 +29,21 @@ const Header = () => {
           </div>
         </div>
       ) : (
-        <div className={styles['login-logout-btn']}>
+        <div
+          className={styles['login-logout-btn']}
+          onClick={() => handleOpen()}
+        >
           <Image src={loginIcon} width={14} height={14} alt='loginIcon' />
           <span className={styles['login-logout-text']}>Log In</span>
         </div>
       )}
+      <CustomModal
+        open={openModal}
+        title={'Login'}
+        handleClose={handleClose}
+        children={<div>children</div>}
+        buttonTitle={'Login'}
+      />
     </header>
   );
 };

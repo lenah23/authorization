@@ -1,0 +1,8 @@
+@import '../../styles/mixins.module.scss';
+
+.loader {
+  width: 100%;
+  min-height: 100%;
+  height: 50vh;
+  @include flexStyles(flex, row, center, center);
+}

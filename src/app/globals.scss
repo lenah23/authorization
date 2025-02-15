@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import './styles/variables.module.scss';
 
 :root {
   --background: #ffffff;
@@ -18,4 +19,9 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.MuiPaper-root {
+  min-width: 560px;
+  background-color: $modal-bg !important;
 }
