@@ -1,0 +1,42 @@
+@import '../../styles/mixins.module.scss';
+@import '../../styles/variables.module.scss';
+
+.header {
+  padding: 15.5px 32px;
+  @include flexStyles(flex, row, space-between, center);
+  border-bottom: 1px solid #6a596c;
+
+  &__slogan {
+    @include flexStyles(flex, row, space-between, center);
+    gap: 7.28px;
+  }
+
+  .login-info {
+    @include flexStyles(flex, row, flex-start, center);
+  }
+
+  .loggedin-user {
+    margin-right: 24px;
+    .logged-in-as {
+      @include textStyles(15px, 400, 19.53px, $text-grey);
+      margin-right: 12px;
+    }
+
+    .email {
+      @include textStyles(14px, 400, 18.23px, $light-grey);
+    }
+  }
+
+  .login-logout-btn {
+    @include flexStyles(flex, row, flex-start, center);
+    gap: 8px;
+
+    :hover {
+      cursor: pointer;
+    }
+
+    .login-logout-text {
+      @include textStyles(14px, 500, 18.23px, $dark-grey);
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@import './styles/mixins.module.scss';
+@import './styles/variables.module.scss';
+
+.login-page {
+  @include sizes(100%, 100vh);
+  min-height: 100vh;
+  background-color: $main-bg;
+}

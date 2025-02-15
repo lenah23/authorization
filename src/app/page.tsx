@@ -1,5 +1,10 @@
-import Image from 'next/image';
+import { Header } from './components';
+import styles from './page.module.scss';
 
-export default function Home() {
-  return <div>djfvbhkdjgrfb</div>;
+export default async function Home() {
+  return (
+    <div className={styles['login-page']}>
+      <Header />
+    </div>
+  );
 }
