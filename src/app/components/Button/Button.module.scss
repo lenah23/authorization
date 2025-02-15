@@ -1,0 +1,9 @@
+@import '../../styles/mixins.module.scss';
+@import '../../styles/variables.module.scss';
+
+.button {
+  padding: 13.5px 0;
+  background-color: $button-bg;
+  border-radius: 15px;
+  @include textStyles(16px, 500, 20.83px, $dirty-white);
+}
