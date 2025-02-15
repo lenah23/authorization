@@ -5,7 +5,7 @@ import loginIcon from '../../assets/images/login.svg';
 import synexis from '../../assets/images/SYNEXIS.svg';
 import styles from './Header.module.scss';
 import UseHeaderHooks from './Header.hooks';
-import { CustomModal } from '../index';
+import { CustomModal, LoginForm } from '../index';
 
 const Header = () => {
   const { openModal, handleClose, handleOpen } = UseHeaderHooks();
@@ -41,8 +41,7 @@ const Header = () => {
         open={openModal}
         title={'Login'}
         handleClose={handleClose}
-        children={<div>children</div>}
-        buttonTitle={'Login'}
+        children={<LoginForm />}
       />
     </header>
   );

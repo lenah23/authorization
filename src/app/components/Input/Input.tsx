@@ -8,7 +8,7 @@ interface InputProps {
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
-  type?: string;
+  type: string;
 }
 
 const Input = ({
