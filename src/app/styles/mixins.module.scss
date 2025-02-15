@@ -1,0 +1,33 @@
+@mixin textStyles($font-size, $font-weight, $line-height, $color) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $color;
+}
+
+@mixin backgroundStyles(
+  $background-size,
+  $background-position,
+  $background-repeat
+) {
+  background-position: $background-position;
+  background-size: $background-size;
+  background-repeat: $background-repeat;
+}
+
+@mixin linkStyles($text-decoration, $color) {
+  text-decoration: $text-decoration;
+  color: $color;
+}
+
+@mixin flexStyles($display, $flex-direction, $justify-content, $align-items) {
+  display: $display;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin sizes($width, $height) {
+  width: $width;
+  height: $height;
+}
