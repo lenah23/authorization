@@ -1,11 +1,11 @@
 import { useForm } from 'react-hook-form';
+import { LoginFormValues, MutationTrigger } from '@/app/store/interfaces';
 
-export interface LoginFormValues {
-  email: string;
-  password: string;
+interface IProps {
+  loginReq: MutationTrigger;
 }
 
-const UseLoginFormHooks = () => {
+const UseLoginFormHooks = ({ loginReq }: IProps) => {
   const {
     control,
     handleSubmit,
@@ -13,15 +13,19 @@ const UseLoginFormHooks = () => {
   } = useForm<LoginFormValues>();
 
   const onSubmit = (data: LoginFormValues) => {
-    console.log('Login Data:', data);
+    const payload = {
+      email: data?.email?.trim(),
+      password: data?.password?.trim(),
+    };
+    loginReq(payload);
   };
 
   return {
-    control,
-    handleSubmit,
     errors,
-    onSubmit,
+    control,
     isSubmitting,
+    handleSubmit,
+    onSubmit,
   };
 };
 

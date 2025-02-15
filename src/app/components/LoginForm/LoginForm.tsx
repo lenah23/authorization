@@ -1,13 +1,20 @@
 'use client';
-import styles from './LoginForm.module.scss';
 
+import { Controller } from 'react-hook-form';
 import UseLoginFormHooks from './LoginForm.hooks';
 import { Input, Button } from '../index';
-import { Controller } from 'react-hook-form';
+import { MutationTrigger } from '@/app/store/interfaces';
+import styles from './LoginForm.module.scss';
 
-export function LoginForm() {
-  const { control, handleSubmit, errors, onSubmit, isSubmitting } =
-    UseLoginFormHooks();
+interface IProps {
+  loginReq: MutationTrigger;
+  isLoading: boolean;
+}
+
+export function LoginForm({ loginReq, isLoading }: IProps) {
+  const { control, handleSubmit, errors, onSubmit } = UseLoginFormHooks({
+    loginReq,
+  });
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles['login-form']}>
@@ -27,7 +34,6 @@ export function LoginForm() {
       {errors.email && (
         <p className={styles['error']}>{errors.email.message}</p>
       )}
-
       <Controller
         name='password'
         control={control}
@@ -46,13 +52,7 @@ export function LoginForm() {
       {errors.password && (
         <p className={styles['error']}>{errors.password.message}</p>
       )}
-
-      <Button
-        text='Login'
-        loading={isSubmitting}
-        onClick={() => {}}
-        disabled={false}
-      />
+      <Button text='Login' loading={isLoading} type='submit' disabled={false} />
     </form>
   );
 }

@@ -1,4 +1,13 @@
 export interface ILoginPayload {
-    email: string,
-    password: string
+  email: string;
+  password: string;
+}
+
+export type MutationTrigger = (
+  arg: ILoginPayload
+) => Promise<{ data?: any; error?: any }>;
+
+export interface LoginFormValues {
+  email: string;
+  password: string;
 }

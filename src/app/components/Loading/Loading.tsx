@@ -9,7 +9,7 @@ interface IProps {
 const Loading: React.FC<IProps> = ({ styleProps }) => {
   return (
     <div className={`${styles.loader}`} style={styleProps}>
-      <ClipLoader color='#707EAE' size={40} />
+      <ClipLoader color='#707EAE' size={20} />
     </div>
   );
 };
