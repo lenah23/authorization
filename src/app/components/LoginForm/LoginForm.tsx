@@ -11,7 +11,7 @@ interface IProps {
   isLoading: boolean;
 }
 
-export function LoginForm({ loginReq, isLoading }: IProps) {
+const LoginForm = ({ loginReq, isLoading }: IProps) => {
   const { control, handleSubmit, errors, onSubmit } = UseLoginFormHooks({
     loginReq,
   });
@@ -55,4 +55,6 @@ export function LoginForm({ loginReq, isLoading }: IProps) {
       <Button text='Login' loading={isLoading} type='submit' disabled={false} />
     </form>
   );
-}
+};
+
+export default LoginForm;

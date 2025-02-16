@@ -1,10 +1,10 @@
 @import '../../styles/variables.module.scss';
+@import '../../styles/mixins.module.scss';
 
 .input-container {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  width: 100%;
+  @include flexStyles(flex, column, flex-start, flex-start);
+  gap: 4px;
+  position: relative;
 }
 
 .input-label {
@@ -12,12 +12,18 @@
   color: $text-grey;
 }
 
+.input-wrapper {
+  position: relative;
+  @include flexStyles(flex, row, center, center);
+  width: 100%;
+}
+
 .input-field {
   width: 100%;
-  padding: 12px;
-  border: 2px solid $dark-grey;
-  border-radius: 6px;
-  background: $main-bg;
+  padding: 10px 16px 10px 30px;
+  border: 2px solid $input-border;
+  border-radius: 10px;
+  background: $input-bg;
   color: $white;
   font-size: 16px;
   transition: all 0.3s ease-in-out;
@@ -32,7 +38,6 @@
   }
 
   &:focus {
-    border-color: $white;
     outline: none;
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
   }
@@ -40,4 +45,8 @@
   &:active {
     background-color: rgba(255, 255, 255, 0.1);
   }
+}
+.input-icon {
+  position: absolute;
+  left: 12px;
 }

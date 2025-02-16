@@ -1,0 +1,35 @@
+@import '../../styles/variables.module.scss';
+@import '../../styles/mixins.module.scss';
+
+.industries-block__container {
+  @include flexStyles(flex, row, center, center);
+  flex: 1;
+  .industries-block {
+    background-color: $industries-modal-bg;
+    width: 560px;
+    padding: 40px 48px;
+    border-radius: 15px;
+
+    .title {
+      text-align: center;
+      @include textStyles(22px, 500, 26px, $dirty-white);
+      margin-bottom: 24px;
+    }
+    .description {
+      text-align: center;
+      @include textStyles(16px, 400, 20.83px, $text-grey);
+      margin-bottom: 24px;
+    }
+    .chose-industries__section {
+      width: 100%;
+      background-color: $dark-purple;
+      border-radius: 15px;
+      padding: 32px;
+      min-height: 464px;
+    }
+  }
+}
+
+.autocomplete-container {
+  width: 100%;
+}
