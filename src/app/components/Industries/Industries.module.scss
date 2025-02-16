@@ -48,4 +48,14 @@
   border-bottom-right-radius: 10px;
   height: 135px;
   overflow: auto;
+  @include flexStyles(flex, column, flex-start, flex-start);
+  gap: 12px;
+
+  .option-item {
+    @include textStyles(15px, 400, 20px, #d0cfd1);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }

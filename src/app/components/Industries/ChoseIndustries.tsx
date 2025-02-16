@@ -7,11 +7,10 @@ interface IProps {
 }
 
 const ChoseIndustries = ({industries}: IProps) => {
-  const { selectedValue, setSelectedValue } = UseIndustriesHooks();
 
   return (
     <div className={styles['chose-industries__section']}>
-      <AutocompleteInput options={industries} onChange={setSelectedValue} />
+      <AutocompleteInput options={industries} />
     </div>
   );
 };
