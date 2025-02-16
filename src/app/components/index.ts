@@ -3,7 +3,7 @@ import Header from './Header/Header';
 import Button from './Button/Button';
 import Loading from './Loading/Loading';
 import LoginForm from './LoginForm/LoginForm';
-import Industries from './Industries/Industries';
+import IndustriesSection from './Industries/Industries';
 import CustomModal from './CustomModal/CustomModal';
 import AutocompleteInput from './Industries/AutoComplete';
 import ChoseIndustries from './Industries/ChoseIndustries';
@@ -14,7 +14,7 @@ export {
   Button,
   Loading,
   LoginForm,
-  Industries,
+  IndustriesSection,
   CustomModal,
   ChoseIndustries,
   AutocompleteInput,

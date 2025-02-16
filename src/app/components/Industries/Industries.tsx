@@ -9,7 +9,7 @@ interface IProps {
   industries: IIndustry[];
 }
 
-const Industries = ({ industries }: IProps) => {
+const IndustriesSection = ({ industries }: IProps) => {
   const {
     saveIndustriesReq,
     isFocused,
@@ -24,9 +24,6 @@ const Industries = ({ industries }: IProps) => {
     options: industries,
   });
 
-  if (!localStorage.getItem('synexis-access-token')) {
-    return <></>;
-  }
   return (
     <div className={styles['industries-block__container']}>
       <div className={styles['industries-block']}>
@@ -61,4 +58,4 @@ const Industries = ({ industries }: IProps) => {
   );
 };
 
-export default Industries;
+export default IndustriesSection;
