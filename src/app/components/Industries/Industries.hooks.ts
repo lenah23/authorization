@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { IIndustry } from '@/app/store/interfaces';
+import { useSaveIndustriesMutation } from '@/app/store/Requests/industriesApi';
 import { toast } from 'react-toastify';
 
 interface IProps {
-  options: { id: number; name: string }[];
+  options: IIndustry[];
 }
 
 const UseIndustriesHooks = ({ options }: IProps) => {
@@ -12,16 +14,14 @@ const UseIndustriesHooks = ({ options }: IProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const [searchValue, setSearchValue] = useState<string>('');
   const [filteredOptions, setFilteredOptions] = useState(options);
-  const [selectedIndustries, setSelectedIndustries] = useState<
-    { id: number; name: string }[]
-  >([]);
+  const [selectedIndustries, setSelectedIndustries] = useState<IIndustry[]>([]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setSearchValue(value);
   };
 
-  const handleItemClick = (industry: { id: number; name: string }) => {
+  const handleItemClick = (industry: IIndustry) => {
     const isIndustrySelected = selectedIndustries.some(
       (selected) => selected.id === industry.id
     );
@@ -53,6 +53,25 @@ const UseIndustriesHooks = ({ options }: IProps) => {
     return () => clearTimeout(timer);
   }, [searchValue, options]);
 
+  const [
+    saveIndustries,
+    { isLoading: saveLoading, isSuccess: saveSuccess, isError: saveError },
+  ] = useSaveIndustriesMutation();
+
+  const saveIndustriesReq = () => {
+    const payload = selectedIndustries?.map((item) => item?.name);
+    saveIndustries({ industry: payload });
+  };
+
+  useEffect(() => {
+    if (saveSuccess) {
+      toast.success('Successfully created');
+      setSelectedIndustries([]);
+    } else if (saveError) {
+      toast.error('Smth went wrong, please try again');
+    }
+  }, [saveSuccess, saveError]);
+
   return {
     isFocused,
     searchValue,
@@ -66,6 +85,8 @@ const UseIndustriesHooks = ({ options }: IProps) => {
     handleItemClick,
     setIsFocused,
     handleChange,
+    saveIndustriesReq,
+    saveLoading,
   };
 };
 

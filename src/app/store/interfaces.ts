@@ -11,3 +11,12 @@ export interface LoginFormValues {
   email: string;
   password: string;
 }
+
+export interface IIndustryPayload {
+  industry: string[];
+}
+
+export interface IIndustry {
+  id: number;
+  name: string;
+}

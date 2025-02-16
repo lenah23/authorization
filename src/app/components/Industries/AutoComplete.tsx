@@ -3,25 +3,31 @@
 import React from 'react';
 import Input from '../Input/Input';
 import searchIcon from '../../assets/images/search-icon.svg';
-import UseIndustriesHooks from './Industries.hooks';
 import styles from './Industries.module.scss';
+import { IIndustry } from '@/app/store/interfaces';
 
 interface AutocompleteInputProps {
-  options: { id: number; name: string }[];
+  options: IIndustry[];
   label?: string;
+  isFocused: boolean;
+  filteredOptions: any;
+  selectedIndustries: any;
+  handleRemoveIndustry: any;
+  setIsFocused: any;
+  handleItemClick: any;
+  handleChange: any;
 }
 
-const AutocompleteInput: React.FC<AutocompleteInputProps> = ({ options }) => {
-  const {
-    isFocused,
-    filteredOptions,
-    selectedIndustries,
-    handleRemoveIndustry,
-    handleItemClick,
-    setIsFocused,
-    handleChange,
-  } = UseIndustriesHooks({ options });
-
+const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
+  options,
+  isFocused,
+  filteredOptions,
+  selectedIndustries,
+  handleRemoveIndustry,
+  setIsFocused,
+  handleItemClick,
+  handleChange,
+}) => {
   return (
     <div className={styles['autocomplete-container']}>
       <Input
@@ -33,17 +39,15 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({ options }) => {
       {filteredOptions && isFocused && (
         <div className={styles['options-container']}>
           {filteredOptions?.length > 0 ? (
-            filteredOptions?.map(
-              (option: { id: number; name: string }, index: number) => (
-                <div
-                  key={index}
-                  className={styles['option-item']}
-                  onClick={() => handleItemClick(option)}
-                >
-                  {option?.name}
-                </div>
-              )
-            )
+            filteredOptions?.map((option: IIndustry, index: number) => (
+              <div
+                key={index}
+                className={styles['option-item']}
+                onClick={() => handleItemClick(option)}
+              >
+                {option?.name}
+              </div>
+            ))
           ) : (
             <div className={styles['empty']}>Nothing has been found</div>
           )}
@@ -57,7 +61,7 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({ options }) => {
             </div>
           )}
           <div className={styles['selected-industries-list']}>
-            {selectedIndustries?.map((industry) => (
+            {selectedIndustries?.map((industry: IIndustry) => (
               <>
                 <div
                   key={industry.id}
