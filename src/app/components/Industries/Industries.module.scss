@@ -25,11 +25,27 @@
       background-color: $dark-purple;
       border-radius: 15px;
       padding: 32px;
-      min-height: 464px;
+      min-height: 248px;
     }
   }
 }
 
 .autocomplete-container {
   width: 100%;
+  background: linear-gradient(
+    92.28deg,
+    #342e5e 9.2%,
+    rgba(145, 145, 145, 0.17) 118.3%,
+    #2a2937 118.31%
+  );
+  backdrop-filter: blur(50px);
+  border-radius: 10px;
+}
+
+.options-container {
+  padding: 13px 24px 21px 16px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 135px;
+  overflow: auto;
 }
