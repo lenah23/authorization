@@ -18,6 +18,7 @@ const UseHeaderHooks = () => {
   useEffect(() => {
     if (isSuccess) {
       localStorage.setItem('synexis-access-token', data?.accessToken);
+      document.cookie = `synexis-access-token=${data?.accessToken}; path=/`;
       handleClose();
       setLoggetIn(data?.accessToken);
     }

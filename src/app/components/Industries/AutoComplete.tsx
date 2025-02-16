@@ -6,7 +6,7 @@ import searchIcon from '../../assets/images/search-icon.svg';
 import styles from './Industries.module.scss';
 
 interface AutocompleteInputProps {
-  options: string[];
+  options: { id: number; name: string }[];
   label?: string;
   onChange?: (value: string) => void;
 }
@@ -20,6 +20,8 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
   const handleFocus = () => setIsFocused(true);
   const handleBlur = () => setIsFocused(false);
 
+  console.log(options, 'aaaaaaaaaaaaaaaaaaadsdaewd');
+
   return (
     <div className={styles['autocomplete-container']}>
       <Input
@@ -30,12 +32,11 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
       />
       {isFocused && (
         <div className={styles['options-container']}>
-          {/* {options.map((option, index) => (
+          {options?.map((option, index) => (
             <div key={index} className={styles['option-item']}>
-              {option}
+              {option?.name}
             </div>
-          ))} */}
-          scsadcfsade
+          ))}
         </div>
       )}
     </div>

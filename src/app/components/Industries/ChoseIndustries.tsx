@@ -2,15 +2,16 @@ import styles from './Industries.module.scss';
 import { AutocompleteInput } from '../index';
 import UseIndustriesHooks from './Industries.hooks';
 
-const ChoseIndustries = () => {
-    const { selectedValue, setSelectedValue } = UseIndustriesHooks();
-    
+interface IProps {
+  industries: { id: number; name: string }[];
+}
+
+const ChoseIndustries = ({industries}: IProps) => {
+  const { selectedValue, setSelectedValue } = UseIndustriesHooks();
+
   return (
     <div className={styles['chose-industries__section']}>
-      <AutocompleteInput
-        options={['sdeswer', 'sdfwefwr', 'sefcwef']}
-        onChange={setSelectedValue}
-      />
+      <AutocompleteInput options={industries} onChange={setSelectedValue} />
     </div>
   );
 };

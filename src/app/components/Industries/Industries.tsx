@@ -1,9 +1,14 @@
 'use client';
 
-import { ChoseIndustries } from "../index";
+import { createContext } from 'vm';
+import { ChoseIndustries } from '../index';
 import styles from './Industries.module.scss';
 
-const Industries = () => {
+interface IProps {
+  industries: { id: number; name: string }[];
+}
+
+const Industries = ({ industries }: IProps) => {
   if (!localStorage.getItem('synexis-access-token')) {
     return <></>;
   }
@@ -17,7 +22,7 @@ const Industries = () => {
           To help us personalize your experience and grow visibility, choose up
           to 3 pre-defined using the search:
         </div>
-            <ChoseIndustries />
+        <ChoseIndustries industries={industries} />
       </div>
     </div>
   );
