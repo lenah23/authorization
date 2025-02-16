@@ -1,4 +1,5 @@
 'use client';
+
 import Image from 'next/image';
 import { CustomModal, LoginForm } from '../index';
 import UseHeaderHooks from './Header.hooks';

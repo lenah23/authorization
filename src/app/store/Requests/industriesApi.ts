@@ -8,7 +8,7 @@ export const industryApi = createApi({
     baseUrl: process.env.NEXT_PUBLIC_API_URL,
   }),
   endpoints: (builder) => ({
-    saveIndustries: builder.mutation<any, IIndustryPayload>({
+    saveIndustries: builder.mutation<{ industry: [] }, IIndustryPayload>({
       query: (payload) => ({
         url: `/onboarding/startup/fourth_step`,
         method: 'POST',

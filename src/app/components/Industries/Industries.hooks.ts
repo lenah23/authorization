@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { IIndustry } from '@/app/store/interfaces';
 import { useSaveIndustriesMutation } from '@/app/store/Requests/industriesApi';
-import { toast } from 'react-toastify';
 
 interface IProps {
   options: IIndustry[];
@@ -11,9 +11,9 @@ interface IProps {
 
 const UseIndustriesHooks = ({ options }: IProps) => {
   const [selectedValue, setSelectedValue] = useState<string>('');
-  const [isFocused, setIsFocused] = useState(false);
+  const [isFocused, setIsFocused] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>('');
-  const [filteredOptions, setFilteredOptions] = useState(options);
+  const [filteredOptions, setFilteredOptions] = useState<IIndustry[]>(options);
   const [selectedIndustries, setSelectedIndustries] = useState<IIndustry[]>([]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -75,18 +75,18 @@ const UseIndustriesHooks = ({ options }: IProps) => {
   return {
     isFocused,
     searchValue,
+    saveLoading,
     selectedValue,
     filteredOptions,
     selectedIndustries,
     handleRemoveIndustry,
     setSelectedIndustries,
     setFilteredOptions,
+    saveIndustriesReq,
     setSelectedValue,
     handleItemClick,
     setIsFocused,
     handleChange,
-    saveIndustriesReq,
-    saveLoading,
   };
 };
 

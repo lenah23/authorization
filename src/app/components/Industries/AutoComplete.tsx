@@ -1,21 +1,21 @@
 'use client';
 
 import React from 'react';
+import { IIndustry } from '@/app/store/interfaces';
 import Input from '../Input/Input';
 import searchIcon from '../../assets/images/search-icon.svg';
 import styles from './Industries.module.scss';
-import { IIndustry } from '@/app/store/interfaces';
 
 interface AutocompleteInputProps {
   options: IIndustry[];
   label?: string;
   isFocused: boolean;
-  filteredOptions: any;
-  selectedIndustries: any;
-  handleRemoveIndustry: any;
-  setIsFocused: any;
-  handleItemClick: any;
-  handleChange: any;
+  filteredOptions: IIndustry[];
+  selectedIndustries: IIndustry[];
+  handleRemoveIndustry: (val: number) => void;
+  setIsFocused: (val: boolean) => void;
+  handleItemClick: (val: IIndustry) => void;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const AutocompleteInput: React.FC<AutocompleteInputProps> = ({

@@ -11,15 +11,15 @@ interface IProps {
 
 const IndustriesSection = ({ industries }: IProps) => {
   const {
-    saveIndustriesReq,
-    isFocused,
-    filteredOptions,
-    selectedIndustries,
     handleRemoveIndustry,
-    setIsFocused,
+    saveIndustriesReq,
     handleItemClick,
     handleChange,
+    setIsFocused,
+    isFocused,
     saveLoading,
+    filteredOptions,
+    selectedIndustries,
   } = UseIndustriesHooks({
     options: industries,
   });

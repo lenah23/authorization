@@ -13,7 +13,7 @@ interface InputProps {
   icon?: string;
   onFocus?: () => void;
   onBlur?: () => void;
-  onClick: any
+  onClick?: () => void;
 }
 
 const Input = ({

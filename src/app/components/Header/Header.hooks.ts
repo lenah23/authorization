@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useCustomModalHooks } from '../CustomModal/CustomModal.hooks';
-import { useLoginMutation } from '@/app/store/Requests/authApi';
 import { useRouter } from 'next/navigation';
+import { useLoginMutation } from '@/app/store/Requests/authApi';
+import { useCustomModalHooks } from '../CustomModal/CustomModal.hooks';
 
 const UseHeaderHooks = () => {
+  const router = useRouter();
   const { openModal, handleClose, handleOpen } = useCustomModalHooks();
-  const [loggedIn, setLoggetIn] = useState(
+  const [loggedIn, setLoggetIn] = useState<string | null>(
     localStorage.getItem('synexis-access-token')
   );
 
@@ -19,8 +20,6 @@ const UseHeaderHooks = () => {
     document.cookie = 'synexis-access-token=; max-age=0; path=/';
     router.push('/');
   };
-
-  const router = useRouter();
 
   useEffect(() => {
     if (isSuccess) {

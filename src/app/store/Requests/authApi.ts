@@ -8,7 +8,7 @@ export const authApi = createApi({
     baseUrl: process.env.NEXT_PUBLIC_API_URL,
   }),
   endpoints: (builder) => ({
-    login: builder.mutation<any, ILoginPayload>({
+    login: builder.mutation<{ accessToken: string }, ILoginPayload>({
       query: (payload) => ({
         url: `/auth/sign_in`,
         method: 'POST',

@@ -1,17 +1,16 @@
 import styles from './Industries.module.scss';
-import { AutocompleteInput, Button } from '../index';
-import UseIndustriesHooks from './Industries.hooks';
+import { AutocompleteInput } from '../index';
 import { IIndustry } from '@/app/store/interfaces';
 
 interface IProps {
   industries: IIndustry[];
   isFocused: boolean;
-  filteredOptions: any;
-  selectedIndustries: any;
-  handleRemoveIndustry: any;
-  setIsFocused: any;
-  handleItemClick: any;
-  handleChange: any
+  filteredOptions: IIndustry[];
+  selectedIndustries: IIndustry[];
+  handleRemoveIndustry: (val: number) => void;
+  setIsFocused: (val: boolean) => void;
+  handleItemClick: (val: IIndustry) => void;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const ChoseIndustries = ({

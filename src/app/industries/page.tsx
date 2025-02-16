@@ -1,8 +1,8 @@
 import { cookies } from 'next/headers';
 import styles from '../page.module.scss';
-import 'react-toastify/dist/ReactToastify.css';
 import { Header, IndustriesSection } from '../components';
 import { redirect } from 'next/navigation';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default async function Industries() {
   const nextCookies = await cookies();
