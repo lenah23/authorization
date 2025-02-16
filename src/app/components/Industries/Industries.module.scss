@@ -5,7 +5,6 @@
   @include flexStyles(flex, row, center, center);
   flex: 1;
   .industries-block {
-    background-color: $industries-modal-bg;
     width: 560px;
     padding: 40px 48px;
     border-radius: 15px;
@@ -32,14 +31,8 @@
 
 .autocomplete-container {
   width: 100%;
-  background: linear-gradient(
-    92.28deg,
-    #342e5e 9.2%,
-    rgba(145, 145, 145, 0.17) 118.3%,
-    #2a2937 118.31%
-  );
-  backdrop-filter: blur(50px);
   border-radius: 10px;
+  position: relative;
 }
 
 .options-container {
@@ -47,9 +40,19 @@
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   height: 135px;
+  width: 100%;
   overflow: auto;
   @include flexStyles(flex, column, flex-start, flex-start);
   gap: 12px;
+  position: absolute;
+  z-index: 1;
+  background: linear-gradient(
+    92.28deg,
+    #342e5e 9.2%,
+    rgba(145, 145, 145, 0.17) 118.3%,
+    #2a2937 118.31%
+  );
+  backdrop-filter: blur(50px);
 
   .option-item {
     @include textStyles(15px, 400, 20px, #d0cfd1);
@@ -57,5 +60,39 @@
     &:hover {
       cursor: pointer;
     }
+  }
+}
+
+.empty {
+  @include textStyles(15px, 400, 20px, #d0cfd1);
+}
+
+.selected-industries {
+  padding-top: 24px;
+}
+
+.selected-industries-title {
+  @include textStyles(15px, 500, 26px, $dirty-white);
+  margin-bottom: 12px;
+}
+
+.selected-industries-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.selected-industry {
+  background: linear-gradient(
+    269.75deg,
+    #a24aa6 0.16%,
+    rgba(22, 16, 50, 0.81) 103.15%
+  );
+  padding: 6.5px 16px;
+  border-radius: 4px;
+  border: 1px solid $white;
+  @include textStyles(15px, 400, 20px, $light-grey);
+  &:hover {
+    cursor: pointer;
   }
 }

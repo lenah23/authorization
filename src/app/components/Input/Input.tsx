@@ -13,6 +13,7 @@ interface InputProps {
   icon?: string;
   onFocus?: () => void;
   onBlur?: () => void;
+  onClick: any
 }
 
 const Input = ({
@@ -23,9 +24,10 @@ const Input = ({
   icon,
   onFocus,
   onBlur,
+  onClick,
 }: InputProps) => {
   return (
-    <div className={styles['input-container']}>
+    <div className={styles['input-container']} onClick={onClick}>
       {label && <label className={styles['input-label']}>{label}</label>}
       <div className={styles['input-wrapper']}>
         {icon && (
