@@ -1,6 +1,7 @@
 'use client';
 
-import { ChoseIndustries } from '../index';
+import { Button, ChoseIndustries } from '../index';
+import UseIndustriesHooks from './Industries.hooks';
 import styles from './Industries.module.scss';
 
 interface IProps {
@@ -8,6 +9,8 @@ interface IProps {
 }
 
 const Industries = ({ industries }: IProps) => {
+
+  
   if (!localStorage.getItem('synexis-access-token')) {
     return <></>;
   }
@@ -22,6 +25,15 @@ const Industries = ({ industries }: IProps) => {
           to 3 pre-defined using the search:
         </div>
         <ChoseIndustries industries={industries} />
+        <div>
+          <Button
+            text={'Continue'}
+            onClick={() => console.log('')}
+            loading={false}
+            disabled={false}
+            type={'button'}
+          />
+        </div>
       </div>
     </div>
   );

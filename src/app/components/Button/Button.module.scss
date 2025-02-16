@@ -6,4 +6,11 @@
   background-color: $button-bg;
   border-radius: 15px;
   @include textStyles(16px, 500, 20.83px, $dirty-white);
+  width: 100%;
+
+  &:disabled {
+    background: $disabled-btn;
+
+    cursor: not-allowed;
+  }
 }

@@ -4,10 +4,12 @@
 .industries-block__container {
   @include flexStyles(flex, row, center, center);
   flex: 1;
+
   .industries-block {
     width: 560px;
     padding: 40px 48px;
     border-radius: 15px;
+    background-color: $industries-modal-bg;
 
     .title {
       text-align: center;
@@ -25,6 +27,7 @@
       border-radius: 15px;
       padding: 32px;
       min-height: 248px;
+      margin-bottom: 43px;
     }
   }
 }

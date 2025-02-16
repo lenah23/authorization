@@ -60,6 +60,7 @@ const UseIndustriesHooks = ({ options }: IProps) => {
     filteredOptions,
     selectedIndustries,
     handleRemoveIndustry,
+    setSelectedIndustries,
     setFilteredOptions,
     setSelectedValue,
     handleItemClick,
