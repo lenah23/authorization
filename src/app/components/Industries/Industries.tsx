@@ -16,6 +16,7 @@ const IndustriesSection = ({ industries }: IProps) => {
     handleItemClick,
     handleChange,
     setIsFocused,
+    searchValue,
     isFocused,
     saveLoading,
     filteredOptions,
@@ -43,6 +44,7 @@ const IndustriesSection = ({ industries }: IProps) => {
           setIsFocused={setIsFocused}
           handleItemClick={handleItemClick}
           handleChange={handleChange}
+          searchValue={searchValue}
         />
         <div>
           <Button

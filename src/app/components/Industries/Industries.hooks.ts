@@ -61,6 +61,7 @@ const UseIndustriesHooks = ({ options }: IProps) => {
   const saveIndustriesReq = () => {
     const payload = selectedIndustries?.map((item) => item?.name);
     saveIndustries({ industry: payload });
+    setSearchValue('');
   };
 
   useEffect(() => {

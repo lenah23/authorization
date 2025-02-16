@@ -11,6 +11,7 @@ interface IProps {
   setIsFocused: (val: boolean) => void;
   handleItemClick: (val: IIndustry) => void;
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  searchValue: string
 }
 
 const ChoseIndustries = ({
@@ -22,6 +23,7 @@ const ChoseIndustries = ({
   setIsFocused,
   handleItemClick,
   handleChange,
+  searchValue,
 }: IProps) => {
   return (
     <div className={styles['chose-industries__section']}>
@@ -34,6 +36,7 @@ const ChoseIndustries = ({
         setIsFocused={setIsFocused}
         handleItemClick={handleItemClick}
         handleChange={handleChange}
+        searchValue={searchValue}
       />
     </div>
   );

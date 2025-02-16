@@ -16,6 +16,7 @@ interface AutocompleteInputProps {
   setIsFocused: (val: boolean) => void;
   handleItemClick: (val: IIndustry) => void;
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  searchValue: string;
 }
 
 const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
@@ -27,6 +28,7 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
   setIsFocused,
   handleItemClick,
   handleChange,
+  searchValue,
 }) => {
   return (
     <div className={styles['autocomplete-container']}>
@@ -35,6 +37,7 @@ const AutocompleteInput: React.FC<AutocompleteInputProps> = ({
         type='text'
         onClick={() => setIsFocused(true)}
         onChange={handleChange}
+        value={searchValue}
       />
       {filteredOptions && isFocused && (
         <div className={styles['options-container']}>
