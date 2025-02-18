@@ -22,8 +22,8 @@ const Header = () => {
   return (
     <header className={styles['header']}>
       <div className={styles['header__slogan']}>
-        <Image src={logo} width={20} height={20} alt='logo' />
-        <Image src={synexis} width={85} height={16} alt='synexis' />
+        {/* <Image src={logo} width={20} height={20} alt='logo' /> */}
+        {/* <Image src={synexis} width={85} height={16} alt='synexis' /> */}
       </div>
       {loggedIn ? (
         <div className={styles['login-info']}>
@@ -32,7 +32,7 @@ const Header = () => {
             <span className={styles['email']}>lenulstep@gmail.com</span>
           </div>
           <div className={styles['login-logout-btn']} onClick={handleLogout}>
-            <Image src={loginIcon} width={14} height={14} alt='loginIcon' />
+            {/* <Image src={loginIcon} width={14} height={14} alt='loginIcon' /> */}
             <span className={styles['login-logout-text']}>Log Out</span>
           </div>
         </div>
